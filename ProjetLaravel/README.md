@@ -33,7 +33,7 @@ Modifier le .env pour Se connecter a la bdd
 
 faire un php artisan migrate pour créer les données dans la base
 
-faire un php artisant db:seed pour peupler la base de donnée
+faire un php artisan db:seed pour peupler la base de donnée
 
 faire un php artisan storage:link pour lien le dossier public au dossier storage
 
