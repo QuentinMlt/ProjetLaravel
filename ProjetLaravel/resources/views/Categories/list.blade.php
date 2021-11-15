@@ -7,6 +7,7 @@
         <div class="border border-danger ms-5 me-5 p-1 rounded" style="height: 200px;">
             @foreach ($categories as $category)
                     <div class="badge bg-danger text-wrap">
+                        @if (\Illuminate\Support\Facades\Auth::check() && \Illuminate\Support\Facades\Auth::user()->role == "admin")
                         <form action="{{route('categoryUpdate', $category->id)}}" method="POST">
                             @csrf
                             @method('PUT')
@@ -20,6 +21,10 @@
                             @csrf
                             <button type="submit" class="badge bg-dark text-wrap">❌</button>
                         </form>
+                        @else
+                        #{{$category->name}}
+                        @endif
+                        
                     </div>
             @endforeach
         </div>

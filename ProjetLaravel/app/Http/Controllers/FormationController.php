@@ -8,7 +8,9 @@ use App\Http\Requests\FormationUpdateRequest;
 use App\Models\Formation;
 use App\Models\FormationByCategories;
 use App\Models\FormationByTypes;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
@@ -139,5 +141,12 @@ class FormationController extends Controller
         DB::table('formations_types')->where('formation_id', '=', $id)->delete();
         $formation->delete();
         return redirect()->route('formationsList');
+    }
+
+    public function profil()
+    {
+        $user = User::find(Auth::user()->id); 
+        $allUsers = User::all();
+        return view('profil', compact(['user','allUsers']));
     }
 }

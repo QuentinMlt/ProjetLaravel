@@ -48,12 +48,17 @@
                     <br />
                     <center>
                         <a href="{{route('formationDetails',$formation->id )}}" class=" mt-1 mb-2 btn btn-success">Voir</a>
-                        <a href="{{route('formationUpdate',$formation->id )}}" class=" mt-1 mb-2 btn btn-primary">Modifier</a>
-                        <form method="POST" action="{{route('formationDelete',$formation->id)}}">
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn btn-danger">Supprimer</button>
-                        </form>
+
+                        @if (\Illuminate\Support\Facades\Auth::check() && \Illuminate\Support\Facades\Auth::user()->id == $formation->user_id)
+                            <a href="{{route('formationUpdate',$formation->id )}}" class=" mt-1 mb-2 btn btn-primary">Modifier</a>
+                            <form method="POST" action="{{route('formationDelete',$formation->id)}}">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger">Supprimer</button>
+                            </form>
+                        @endif
+                        
+                        
                     </center>
                 </div>
             </div>

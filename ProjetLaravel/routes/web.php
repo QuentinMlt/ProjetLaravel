@@ -4,8 +4,10 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FormationController;
+use App\Http\Controllers\UserController;
 use App\Models\Category;
 use App\Models\Formation;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,5 +48,10 @@ Route::delete('/chapitres/{id}', [ChapterController::class, 'delete'])->name('ch
 
 Route::get('/contact', [ContactController::class, 'contact'])->name('contact');
 Route::post('/contact', [ContactController::class, 'send'])->name('sendMail');
+
+
+Route::get('/profil', [FormationController::class, 'profil'])->name('profil');
+
+Route::put('/profil/modifier', [UserController::class, 'editUser'])->name('editUser');
 
 require __DIR__.'/auth.php';

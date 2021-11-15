@@ -61,7 +61,7 @@
             @csrf
             @method('DELETE')
             <button class="btn btn-danger">Supprimer cette article</button>
-           </form>
+           </form><br>
         @endif
         
 

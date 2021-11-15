@@ -22,6 +22,7 @@ class FormationSeeder extends Seeder
             'price' =>'20',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'user_id' => 1,
         ]);
 
         DB::table('formations')->insert([
@@ -31,6 +32,7 @@ class FormationSeeder extends Seeder
             'price' =>'10',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'user_id' => 1,
         ]);
         
         DB::table('formations')->insert([
@@ -40,6 +42,7 @@ class FormationSeeder extends Seeder
             'price' =>'30',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'user_id' => 1,
         ]);
     }
 }

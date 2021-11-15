@@ -7,19 +7,39 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## About PROJET Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Projet Laravel est une application Web qui permet de lister des formations 
+Elles sont créer par des utilisateurs ou par l'admin.
+Elles contiennnent des chapitres/categories/type.
+Elles peuvent etre modifier/supprimer.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Il y a deux types d'utilisateur : Admin et User
+l'Admin peut tout faire sur toutes les formations
+L'Utilisateur peut tout faire sur toutes ses formations
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Pour créer un utilisateur je n'ai pas réussi a faire la création d'user par mail.
+Ces derniers doivent directement etre créer dans la bdd.
+
+Installation : 
+
+Une fois le projet telecharger faire : composer install
+
+remplacer .env.exemple par .env
+
+commande suivante : php artisan key:generate.
+
+Modifier le .env pour Se connecter a la bdd
+
+faire un php artisan migrate pour créer les données dans la base
+
+faire un php artisant db:seed pour peupler la base de donnée
+
+faire un php artisan storage:link pour lien le dossier public au dossier storage
+
+php artisan serve pour lancer le projet
+
+<img src="MCD\mcd.png">
 
 ## Learning Laravel
 
