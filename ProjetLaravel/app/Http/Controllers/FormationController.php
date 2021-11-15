@@ -48,6 +48,7 @@ class FormationController extends Controller
         $file = Storage::put('public',$params['picture']);
         
         $params['picture'] = substr($file,7);
+        $params['user_id'] = auth()->user()->id;
         $formation = Formation::create($params);
         $getOnJson = json_encode($formation);
         $f = strpos($getOnJson, 'id":');

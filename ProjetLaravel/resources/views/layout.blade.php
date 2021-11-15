@@ -23,6 +23,24 @@
                 <li class="nav-item">
                   <a class="nav-link" href="{{route('categoriesList')}}">Categorie</a>
                 </li>
+                
+                @if (\Illuminate\Support\Facades\Auth::check())
+                
+                <li class="nav-item bg-success pt-2 ms-2 me-2 rounded">
+                 {{\Illuminate\Support\Facades\Auth::user()->name}}
+                </li>
+                    
+                @else
+                <li class="nav-item bg-success ms-2 me-2 rounded">
+                  <a class="nav-link" href="{{route('login')}}">Se connecter</a>
+                </li>
+                @endif
+
+                <li class="nav-item">
+                  <a class="nav-link" href="{{route('contact')}}">Demande d'inscription</a>
+                </li>
+
+                
               </ul>
             </div>
           </nav>
@@ -31,7 +49,7 @@
 
     @yield('content')
 
-    <footer class="bg-light text-center text-lg-start fixed-bottom">
+    <footer class="bg-light text-center text-lg-start bottom">
         <!-- Copyright -->
         <div class="text-center p-3" style="background-color: #212529; color:white">
           © Quentin MAILLOT PROJET LARAVEL

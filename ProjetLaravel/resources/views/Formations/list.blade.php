@@ -5,7 +5,10 @@
 
 <div class="container-sm mt-5" style="margin-bottom: 100px;">
     <h1>Liste des formations</h1>
-    <a href="{{route('formationAdd')}}" class="btn btn-success">Ajouter une formation</a>
+    @if (\Illuminate\Support\Facades\Auth::check())
+        <a href="{{route('formationAdd')}}" class="btn btn-success">Ajouter une formation</a>
+    @endif
+    
     @if (sizeof($formations) > 0)
 
     <div class="row">
@@ -21,6 +24,7 @@
                   <div class="badge bg-success text-wrap">{{$formation->price}} €</div>
                   <p class="card-text">{{$formation->description}}</p>
                   <p class="card-text">{{sizeof($formation->chapters)}} chapitre(s)</p>
+                  <p>Ecrit par {{$formation->user->name}}</p>
 
                     @foreach ($formationsByTypes as $fBT)
                         @if ($fBT->formation_id == $formation->id)

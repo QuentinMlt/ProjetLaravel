@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddLastnameFirstnameUsersTable extends Migration
+class AddUserIdFormationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class AddLastnameFirstnameUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('firstname');
-            $table->string('lastname');
-            $table->dropColumn('name');
+        Schema::table('formations', function (Blueprint $table) {
+            $table->unsignedBigInteger('user_id')->index()->nullable();
+            $table->foreign('user_id')
+            ->references('id')
+            ->on('users')
+            ->onDelete('SET NULL');
         });
     }
 
@@ -27,7 +29,7 @@ class AddLastnameFirstnameUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('formations', function (Blueprint $table) {
             //
         });
     }
